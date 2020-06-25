@@ -3,7 +3,7 @@
 Python3 tool to convert virtual drumkits for (home-)recording from one format into another one
 
 ## License
-MIT 
+MIT (See License)
 
 ## Wiki
 https://github.com/peter-zenk/genDrumkit/wiki
