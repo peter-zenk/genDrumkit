@@ -8,8 +8,8 @@ License: GPL-3.0 https://opensource.org/licenses/GPL-3.0
 
 
 
-
-> Usage: genDrumkit [-h] [--kit_name DRUMKIT_NAME] [--output_dir OUT_DIR] [--impFmt {DUMMY,HG}] [--expFmt {DG}] [--channel_map CHANNEL_MAP] [--hg_db HG_DB] [--hg_xml HG_XML]
+```
+Usage: genDrumkit [-h] [--kit_name DRUMKIT_NAME] [--output_dir OUT_DIR] [--impFmt {DUMMY,HG}] [--expFmt {DG}] [--channel_map CHANNEL_MAP] [--hg_db HG_DB] [--hg_xml HG_XML]
                   [--hg_midi_start HG_MIDI_START] [--hg_stereo] [--hg_mode {KIT,TPL}] [--src_dir SRC_DIR] [--sample_src_pol {USE,TRG}] [--sample_level {normalized,scaled}]
                   [--log_level {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
 
@@ -61,3 +61,4 @@ Report:
   --log_level {DEBUG,INFO,WARNING,ERROR,CRITICAL}, -ll {DEBUG,INFO,WARNING,ERROR,CRITICAL}
                         Set logging level. Default: INFO
 
+```
