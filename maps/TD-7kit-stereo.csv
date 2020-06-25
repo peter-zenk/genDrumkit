@@ -1,0 +1,44 @@
+# Version 1.0
+# --------------------------------------------------------
+# Map File for: 'TD-7kit'
+# --------------------------------------------------------
+#
+# NOTE: This mapping is for L/R per output channel (--hg_stereo)
+#
+# Format:
+# <Instr>, <Channel, [<Midi>], [<Group>], [<Res1>], [<Res2>] 
+#    <Instr>   : Name of instrument. Mandatory
+#    <Channel> : Name of output channel. Mandatory
+#    <Midi>    : Midi note for instrument. Optional
+#    <Group>   : instrument belongs to a common group. e.g. HiHat. Optional
+#    <Res1>    : for future usage
+#    <Res2>    : for future usage
+# Note: Either all or no midi notes should be specified.
+#    
+# Examples:
+#    Snare1, Snare, 38 ,     ,
+#    Snare2, Snare,  ,     ,
+#    HiHat Open, HiHat, 45, Group1
+#    HiHat Closed, HiHat, 46, Group1
+#    Kick1 , Kick, 43 , ,
+#    
+# --------------------------------------------------------
+ kick dry,      kick, ,  , ,  ,
+ kick 909,      kick, ,  , ,  ,
+ snare maple,   snare, ,  , ,  ,
+ snare memphis, snare, ,  , ,  ,
+ snare real,    snare, ,  , ,  ,
+ snare raggae,  snare, ,  , ,  ,
+ chh lax,       hihat, ,hihat   , ,  ,
+ chh inner,     hihat, , hihat  , ,  ,
+ chh outer,     hihat, , hihat  , ,  ,
+ bongo hi,      bongo hi, ,  , ,  ,
+ bongo low,     bongo low, ,  , ,  ,
+ ride rock,     ride, ,  , ,  ,
+ ride brush,    ride, ,  , ,  ,
+ crash,         crash, ,  , ,  ,
+ tamb,          perc, ,  , ,  ,
+ gamelan,       perc, ,  , ,  ,
+# --------------------------------------------------------
+# End of map
+# --------------------------------------------------------

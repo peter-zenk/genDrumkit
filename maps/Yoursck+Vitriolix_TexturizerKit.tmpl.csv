@@ -1,0 +1,54 @@
+# Version 1.0
+# --------------------------------------------------------
+# Map File for: 'Yoursck+Vitriolix_TexturizerKit'
+# --------------------------------------------------------
+#
+# Please replace defaults in 2nd column by name of audio-channels 
+# (up to 8 for stereo, 16 for mono)
+#
+# Format:
+# <Instr>, <Channel, [<Midi>], [<Group>], [<Res1>], [<Res2>] 
+#    <Instr>   : Name of instrument. Mandatory
+#    <Channel> : Name of output channel. Mandatory
+#    <Midi>    : Midi note for instrument. Optional
+#    <Group>   : instrument belongs to a common group. e.g. HiHat. Optional
+#    <Res1>    : for future usage
+#    <Res2>    : for future usage
+# Note: Either all or no midi notes should be specified.
+#    
+# Examples:
+#    Snare1, Snare, 38 ,     ,
+#    Snare2, Snare,  ,     ,
+#    HiHat Open, HiHat, 45, Group1
+#    HiHat Closed, HiHat, 46, Group1
+#    Kick1 , Kick, 43 , ,
+#    
+# --------------------------------------------------------
+35_smack_kick       , 35_smack_kick       ,     ,     ,     ,      ,
+36kick              , 36kick              ,     ,     ,     ,      ,
+37_rim              , 37_rim              ,     ,     ,     ,      ,
+38_punch            , 38_punch            ,     ,     ,     ,      ,
+39_shoe_drop        , 39_shoe_drop        ,     ,     ,     ,      ,
+40_snare_spark      , 40_snare_spark      ,     ,     ,     ,      ,
+41_tom_floor        , 41_tom_floor        ,     ,     ,     ,      ,
+42hat_closed        , 42hat_closed        ,     ,     ,     ,      ,
+45_tom_thump        , 45_tom_thump        ,     ,     ,     ,      ,
+47_tom_high         , 47_tom_high         ,     ,     ,     ,      ,
+49_manhole_cover    , 49_manhole_cover    ,     ,     ,     ,      ,
+51_exhale           , 51_exhale           ,     ,     ,     ,      ,
+52_drama_kick       , 52_drama_kick       ,     ,     ,     ,      ,
+53_cap_off_vitriolix, 53_cap_off_vitriolix,     ,     ,     ,      ,
+54_hat_closed_vitriolix, 54_hat_closed_vitriolix,     ,     ,     ,      ,
+55_rustle           , 55_rustle           ,     ,     ,     ,      ,
+56_bottle_pop_vitriolix, 56_bottle_pop_vitriolix,     ,     ,     ,      ,
+57_click_clack_vitriolix, 57_click_clack_vitriolix,     ,     ,     ,      ,
+58_vibrasip         , 58_vibrasip         ,     ,     ,     ,      ,
+59_click2_vitriolix , 59_click2_vitriolix ,     ,     ,     ,      ,
+60_click_vitriolix  , 60_click_vitriolix  ,     ,     ,     ,      ,
+65_light_drum       , 65_light_drum       ,     ,     ,     ,      ,
+73_guiro_short      , 73_guiro_short      ,     ,     ,     ,      ,
+75_chopstick        , 75_chopstick        ,     ,     ,     ,      ,
+77_crossover        , 77_crossover        ,     ,     ,     ,      ,
+# --------------------------------------------------------
+# End of map
+# --------------------------------------------------------

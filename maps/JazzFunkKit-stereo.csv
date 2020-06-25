@@ -1,0 +1,61 @@
+# Version 1.0
+# --------------------------------------------------------
+# Map File for: 'JazzFunkKit'
+# --------------------------------------------------------
+#
+# NOTE: This mapping is for L/R per output channel (--hg_stereo)
+#
+# Format:
+# <Instr>, <Channel, [<Midi>], [<Group>], [<Res1>], [<Res2>] 
+#    <Instr>   : Name of instrument. Mandatory
+#    <Channel> : Name of output channel. Mandatory
+#    <Midi>    : Midi note for instrument. Optional
+#    <Group>   : instrument belongs to a common group. e.g. HiHat. Optional
+#    <Res1>    : for future usage
+#    <Res2>    : for future usage
+# Note: Either all or no midi notes should be specified.
+#    
+# Examples:
+#    Snare1, Snare, 38 ,     ,
+#    Snare2, Snare,  ,     ,
+#    HiHat Open, HiHat, 45, Group1
+#    HiHat Closed, HiHat, 46, Group1
+#    Kick1 , Kick, 43 , ,
+#    
+# --------------------------------------------------------
+ kick - sn off,        Kick, , , , ,
+ kick - sn on,         Kick, , , , ,
+ bop kick - sn off,    Kick, , , , ,
+ bop kick - sn on,     Kick, , , , ,
+ snare - on,           Snare, , , , ,
+ snare - off,          Snare, , , , ,
+ rimshot - sn on,      Snare, , , , ,
+ stick - sn on,        Snare, , , , ,
+ xstick - sn on,       Snare, , , , ,
+ snare off,            Snare, , , , ,
+ rimshot - sn off,     Snare  , , , , ,
+ stick - sn off,       Snare, , , , ,
+ xstick - sn off,      Snare, , , , ,
+ HH - pedal,           HiHat, , hihat , , ,
+ HH - closed,          HiHat, , hihat , , ,
+ HH - closed side,     HiHat, ,hihat , , ,
+ HH-open release,      HiHat, ,  hihat , , ,
+ HH-open 1,            HiHat, ,hihat , , ,
+ HH-open 2,            HiHat, ,hihat , , ,
+ HH-open 3,            HiHat, ,   hihat   , , ,
+ HH-open 4,            HiHat, ,hihat , , ,
+ HH-open 5,            HiHat, ,hihat , , ,
+ tom 2 - sn off,       Tom2, , , , ,
+ tom 2 - sn on,        Tom2, , , , ,
+ tom 1 - sn off,       Tom1, , , , ,
+ tom 1 - sn on,        Tom1, , , , ,
+ flat ride,            Ride, , , , ,
+ flat ride - crash,    Ride, , , , ,
+ ride,                 Ride, , , , ,
+ ride - crash,         Ride, , , , ,
+ ride bell,            Ride, , , , ,
+ turn snare off,       Snare, , , , ,
+ turn snare on,        Snare, , , , ,
+# --------------------------------------------------------
+# End of map
+# --------------------------------------------------------

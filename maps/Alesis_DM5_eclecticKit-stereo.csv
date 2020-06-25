@@ -1,0 +1,75 @@
+# Version 1.0
+# --------------------------------------------------------
+# Map File for: 'Alesis_DM5_eclecticKit'
+# --------------------------------------------------------
+#
+# NOTE: This mapping is for L/R per output channel (--hg_stereo)
+#
+# Format:
+# <Instr>, <Channel, [<Midi>], [<Group>], [<Res1>], [<Res2>] 
+#    <Instr>   : Name of instrument. Mandatory
+#    <Channel> : Name of output channel. Mandatory
+#    <Midi>    : Midi note for instrument. Optional
+#    <Group>   : instrument belongs to a common group. e.g. HiHat. Optional
+#    <Res1>    : for future usage
+#    <Res2>    : for future usage
+# Note: Either all or no midi notes should be specified.
+#    
+# Examples:
+#    Snare1, Snare, 38 ,     ,
+#    Snare2, Snare,  ,     ,
+#    HiHat Open, HiHat, 45, Group1
+#    HiHat Closed, HiHat, 46, Group1
+#    Kick1 , Kick, 43 , ,
+#    
+# --------------------------------------------------------
+35kick,             Kick,  ,  ,  ,    ,
+36kick,             Kick,  ,  ,  ,    ,
+37rim,              Snare,  ,  ,  ,    ,
+38snare,            Snare,  ,  ,  ,    ,
+39_stick,           Snare,  ,  ,  ,    ,
+40snare,            Snare,  ,  ,  ,    ,
+41tom,              Tom1,  ,  ,  ,    ,
+42hat_closed,       HiHat,  ,  ,  ,    ,
+43tom,              Tom1,  ,  ,  ,    ,
+44hat_flanged,      HiHat,  ,  ,  ,    ,
+45tom,              Tom1,  ,  ,  ,    ,
+46hat_closed,       HiHat,  ,  ,  ,    ,
+47tom,              Tom2,  ,  ,  ,    ,
+48tom,              Tom2,  ,  ,  ,    ,
+49_plinkride,       Ride,  ,  ,  ,    ,
+50tom,              Tom2,  ,  ,  ,    ,
+51_ride_electric,   Ride,  ,  ,  ,    ,
+52_thudkick,        Perc1,  ,  ,  ,    ,
+53_ride_air,        Ride,  ,  ,  ,    ,
+54tamborine,        Perc1,  ,  ,  ,    ,
+55_bassdrum,        Kick,  ,  ,  ,    ,
+56_tink,            Perc1,  ,  ,  ,    ,
+57_chain,           Perc1,  ,  ,  ,    ,
+58_sandspill,       Perc1,  ,  ,  ,    ,
+59_shock,           Perc1,  ,  ,  ,    ,
+60_snap,            Perc1,  ,  ,  ,    ,
+61bongo,            Perc2 ,  ,  ,  ,    ,
+62bongo,            Perc2,  ,  ,  ,    ,
+63bongo,            Perc2,  ,  ,  ,    ,
+64bongo,            Perc2,  ,  ,  ,    ,
+65bongo,            Perc2,  ,  ,  ,    ,
+66bongo,            Perc2,  ,  ,  ,    ,
+67agogo_high,       Perc1,  ,  ,  ,    ,
+68agogo_low,        Perc1,  ,  ,  ,    ,
+69cabasa,           Perc1,  ,  ,  ,    ,
+70maraca,           Perc1,  ,  ,  ,    ,
+71_maraca_short,    Perc1,  ,  ,  ,    ,
+72_littledrum_hi,   Perc2,  ,  ,  ,    ,
+73_littledrum_mid,  Perc2,  ,  ,  ,    ,
+74_littledrum_low,  Perc2,  ,  ,  ,    ,
+75_drum_shaker,     Perc1,  ,  ,  ,    ,
+76woodblock_high,   Perc2,  ,  ,  ,    ,
+77woodblock_low,    Perc2,  ,  ,  ,    ,
+78_tabla,           Perc1,  ,  ,  ,    ,
+79_tabla,           Perc1,  ,  ,  ,    ,
+80_clink,           Perc1,  ,  ,  ,    ,
+81triangle,         Perc1,  ,  ,  ,    ,
+# --------------------------------------------------------
+# End of map
+# --------------------------------------------------------
