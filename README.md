@@ -2,11 +2,13 @@
 
 Python3 tool to convert virtual drumkits for (home-)recording from one format into another one
 
-License: GPL-3.0 https://opensource.org/licenses/GPL-3.0
+## License
+GPL-3.0 https://opensource.org/licenses/GPL-3.0
 
+## Wiki
+(tbd)
 
-
-
+## Usage
 
 ```
 Usage: genDrumkit [-h] [--kit_name DRUMKIT_NAME] [--output_dir OUT_DIR] [--impFmt {DUMMY,HG}] [--expFmt {DG}] [--channel_map CHANNEL_MAP] [--hg_db HG_DB] [--hg_xml HG_XML]
