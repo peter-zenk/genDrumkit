@@ -58,7 +58,7 @@ class HgImporter(Importer):
   
   def _read_map_file(self):
     self._channel_map = []
-    fn                = self._params.channel_map
+    fn                = self._params.map_fn
     try:
       logger.info("Reading map file '%s' ...", fn)
      

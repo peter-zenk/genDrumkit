@@ -248,41 +248,11 @@ class BLD_HG(BLD_Base):
 
   def _create_channelmap_template(self):
   
-    map_list = []
-    map_list.append("# Version 1.0")
-    map_list.append("# --------------------------------------------------------")    
-    map_list.append("# Map File for: '"+self._params.drumkit_name+"'")
-    map_list.append("# --------------------------------------------------------")    
-    map_list.append("# Format:")
-    map_list.append("# <Instr>, <Channel, [<Midi>], [<Group>], [<Res1>], [<Res2>] ")   
-    map_list.append("#    <Instr>   : Name of instrument. Mandatory")    
-    map_list.append("#    <Channel> : Name of output channel. Mandatory")    
-    map_list.append("#    <Midi>    : Midi note for instrument. Optional")    
-    map_list.append("#    <Group>   : instrument belongs to a common group. e.g. HiHat. Optional")    
-    map_list.append("#    <Res1>    : for future usage")    
-    map_list.append("#    <Res2>    : for future usage")    
-    map_list.append("# Note: Either all or no midi notes should be specified.")
-    map_list.append("#    ")    
-    map_list.append("# Examples:")    
-    map_list.append("#    Snare1, Snare, 38 ,     ,")
-    map_list.append("#    Snare2, Snare,  ,     ,")
-    map_list.append("#    HiHat Open, HiHat, 45, Group1")
-    map_list.append("#    HiHat Closed, HiHat, 46, Group1")
-    map_list.append("#    Kick1 , Kick, 43 , ,")
-    map_list.append("#    ")    
-    map_list.append("# --------------------------------------------------------")    
+    instr_list = []
     for xml_instr in self._root.find('instrumentList'):
       name = xml_instr.findtext("name").strip()
-      map_list.append("{:20}, {:20},     ,     ,     ,      ,".format(name, name))
-    map_list.append("# --------------------------------------------------------")    
-    map_list.append("# End of map")
-    map_list.append("# --------------------------------------------------------\n")    
-    
-    tmpl_fn = self._params.drumkit_name + ".map"
-    
-    with open(tmpl_fn, mode='wt', encoding='utf-8') as f:
-      f.write('\n'.join(map_list))
-    #logger.info("Map template file '%' written.", tmpl_fn)
-    
+      instr_list.append(name)
+   
+    self._create_map_template(instr_list)
     
     

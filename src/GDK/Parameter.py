@@ -53,7 +53,7 @@ class Parameter(object):
     samples_level:      str  = "normalized"     # samples are normalized or scaled
     samples_src_pol:    open = "USE"            # policy for input sample file name
 
-    channel_map:        open = None             # CSV file with mapping from instrument to channel
+    map_fn:             str  = ""             # CSV file with mapping from instrument to channel
     
     """ Importers """
     impFmt:             open = None             # Type of importer
@@ -87,6 +87,7 @@ class Parameter(object):
       
       parser = ArgumentParser(description="Create a drum kit")
       
+      
       group_gn = parser.add_argument_group('General', 'Common options')
 
       group_gn.add_argument("--kit_name", "-kn", type=str, dest="drumkit_name", 
@@ -106,7 +107,7 @@ class Parameter(object):
                           choices=ExpType.list(),
                           help="Drum kit export format. Default: DG (DrumGizmo)")
 
-      group_gn.add_argument("--channel_map", "-cm", type=str, dest="channel_map",
+      group_gn.add_argument("--channel_map", "-cm", type=str, dest="map_fn",
                           default="map.csv",
                           help="Channel/Instrument map file. Default 'map.csv'")
       
