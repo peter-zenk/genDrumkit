@@ -4,10 +4,10 @@ Created on Jun 14, 2020
 @author: peter
 '''
 
-from GDK.IMP.HgImporter    import HgImporter
-from GDK.IMP.DummyImporter import DummyImporter
+from gen_drum_kit.importer.HgImporter    import HgImporter
+from gen_drum_kit.importer.DummyImporter import DummyImporter
 
-from GDK.EXP.DgExporter import DgExporter
+from gen_drum_kit.exporter.DgExporter    import DgExporter
 
 import logging
 logger = logging.getLogger(__name__)

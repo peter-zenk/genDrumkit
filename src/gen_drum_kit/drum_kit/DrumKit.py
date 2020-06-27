@@ -8,9 +8,9 @@ Created on Jun 14, 2020
 from dataclasses import dataclass, field
 from typing import List
 
-from GDK.DK.Metadata   import Metadata
-from GDK.DK.Instrument import Instrument
-from GDK.DK.Channel    import Channel
+from gen_drum_kit.drum_kit.Metadata   import Metadata
+from gen_drum_kit.drum_kit.Instrument import Instrument
+from gen_drum_kit.drum_kit.Channel    import Channel
 
 import logging
 logger = logging.getLogger(__name__)

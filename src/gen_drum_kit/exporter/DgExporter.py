@@ -16,8 +16,8 @@ from shutil import copy2
 from os.path import dirname
 import xml.etree.ElementTree as ET
 
-from GDK.EXP.Exporter import Exporter
-from GDK.Util import mkdir, dir_exists, file_exists
+from gen_drum_kit.exporter.Exporter import Exporter
+from gen_drum_kit.Util import mkdir, dir_exists, file_exists
 
 
 import logging

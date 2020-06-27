@@ -9,14 +9,14 @@ import sys
 from shutil import rmtree
 from platform import system
 
-from GDK.Parameter import Parameter
-from GDK.Factory   import ImporterFactory, ExporterFactory
+from gen_drum_kit.Parameter import Parameter
+from gen_drum_kit.Factory   import ImporterFactory, ExporterFactory
 
 import logging
 logger = logging.getLogger(__name__)
 
 
-class Main(object):
+class main(object):
 
   def __init__(self):
     self._impFactory = ImporterFactory()

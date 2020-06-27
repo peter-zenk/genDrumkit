@@ -4,8 +4,8 @@ Created on Jun 14, 2020
 @author: peter
 '''
 
-from GDK.IMP.Importer import Importer
-from GDK.BLD.BLD_DY   import BLD_Dummy
+from gen_drum_kit.importer.Importer import Importer
+from gen_drum_kit.builder.BLD_DY    import BLD_Dummy
 
 import sys
 import xml.etree.ElementTree as ET

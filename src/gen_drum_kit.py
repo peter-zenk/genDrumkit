@@ -5,11 +5,11 @@
 """
 
 
-from GDK.Main import Main
+from gen_drum_kit.Main import main
 
 #------------------------------------------------------------------------------
 
-program = Main()
+program = main()
 
 program.run() 
 

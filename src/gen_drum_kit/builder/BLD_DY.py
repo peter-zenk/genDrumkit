@@ -5,14 +5,14 @@ This class builds a default Drumkit object
 
 @author: peter
 '''
-from GDK.DK.DrumKit    import DrumKit
-from GDK.DK.Instrument import Instrument
-from GDK.DK.Channel    import Channel
-from GDK.DK.ChannelMap import ChannelMap
-from GDK.DK.Sample     import Sample
-from GDK.DK.Audio      import Audio
+from gen_drum_kit.drum_kit.DrumKit    import DrumKit
+from gen_drum_kit.drum_kit.Instrument import Instrument
+from gen_drum_kit.drum_kit.Channel    import Channel
+from gen_drum_kit.drum_kit.ChannelMap import ChannelMap
+from gen_drum_kit.drum_kit.Sample     import Sample
+from gen_drum_kit.drum_kit.Audio      import Audio
 
-from GDK.BLD.Base import BLD_Base
+from gen_drum_kit.builder.Base import BLD_Base
 
 import logging
 logger = logging.getLogger(__name__)

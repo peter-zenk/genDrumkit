@@ -7,7 +7,7 @@ Created on Jun 15, 2020
 from typing import List
 from dataclasses import dataclass, field
 
-from GDK.DK.Audio import Audio
+from gen_drum_kit.drum_kit.Audio import Audio
 
 import logging
 logger = logging.getLogger(__name__)
