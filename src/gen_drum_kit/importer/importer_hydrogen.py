@@ -4,7 +4,7 @@ Created on Jun 14, 2020
 @author: peter
 '''
 
-from gen_drum_kit.importer.Importer import Importer
+from gen_drum_kit.importer.importer import Importer
 import sys
 import re
 import csv
@@ -16,9 +16,9 @@ import xml.etree.ElementTree as ET
 import logging
 logger = logging.getLogger(__name__)
 
-from gen_drum_kit.drum_kit.DrumKit import DrumKit
-from gen_drum_kit.builder.BLD_HG import BLD_HG
-from gen_drum_kit.Util import decomment, dir_exists
+from gen_drum_kit.drum_kit.DrumKit         import DrumKit
+from gen_drum_kit.builder.builder_hydrogen import BLD_HG
+from gen_drum_kit.Util                     import decomment, dir_exists
 
 class HgImporter(Importer):
 

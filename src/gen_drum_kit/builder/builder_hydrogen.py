@@ -5,15 +5,15 @@ Created on Jun 17, 2020
 '''
 
 
-from gen_drum_kit.drum_kit.DrumKit    import DrumKit
-from gen_drum_kit.drum_kit.Instrument import Instrument
-from gen_drum_kit.drum_kit.Channel    import Channel
-from gen_drum_kit.drum_kit.ChannelMap import ChannelMap
-from gen_drum_kit.drum_kit.Sample     import Sample
-from gen_drum_kit.drum_kit.Audio      import Audio
-from gen_drum_kit.drum_kit.Metadata   import Metadata
+from gen_drum_kit.drum_kit.DrumKit     import DrumKit
+from gen_drum_kit.drum_kit.Instrument  import Instrument
+from gen_drum_kit.drum_kit.Channel     import Channel
+from gen_drum_kit.drum_kit.ChannelMap  import ChannelMap
+from gen_drum_kit.drum_kit.Sample      import Sample
+from gen_drum_kit.drum_kit.Audio       import Audio
+from gen_drum_kit.drum_kit.Metadata    import Metadata
 
-from gen_drum_kit.builder.Base import BLD_Base
+from gen_drum_kit.builder.builder_base import BLD_Base
 
 
 
