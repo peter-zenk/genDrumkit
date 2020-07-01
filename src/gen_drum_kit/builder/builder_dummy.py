@@ -12,13 +12,13 @@ from gen_drum_kit.drum_kit.ChannelMap  import ChannelMap
 from gen_drum_kit.drum_kit.Sample      import Sample
 from gen_drum_kit.drum_kit.Audio       import Audio
 
-from gen_drum_kit.builder.builder_base import BLD_Base
+from gen_drum_kit.builder.builder_base import Builder_Base
 
 import logging
 logger = logging.getLogger(__name__)
 
 
-class BLD_Dummy(BLD_Base):
+class Builder_Dummy(Builder_Base):
   
   def __init__(self, params):
     super().__init__(params)

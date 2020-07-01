@@ -16,14 +16,14 @@ from shutil import copy2
 from os.path import dirname
 import xml.etree.ElementTree as ET
 
-from gen_drum_kit.exporter.exporter import Exporter
-from gen_drum_kit.Util import mkdir, dir_exists, file_exists
+from gen_drum_kit.exporter.exporter_base import Exporter_Base
+from gen_drum_kit.util import mkdir, dir_exists, file_exists
 
 
 import logging
 logger = logging.getLogger(__name__)
 
-class DgExporter(Exporter):
+class Exporter_Drumgizmo(Exporter_Base):
   """ Drum Gizmo Exporter """
 
   def __init__(self, drumkit, params):

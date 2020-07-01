@@ -10,7 +10,7 @@ import abc
 import logging
 logger = logging.getLogger(__name__)
 
-class BLD_Base(metaclass=abc.ABCMeta):
+class Builder_Base(metaclass=abc.ABCMeta):
   '''
     classdocs
   '''

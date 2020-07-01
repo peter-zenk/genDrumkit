@@ -4,30 +4,28 @@ Created on Jun 14, 2020
 @author: peter
 '''
 
-from gen_drum_kit.importer.importer import Importer
+from gen_drum_kit.importer.importer_base import ImporterBase
 import sys
 import re
-import csv
+
 import tarfile
-import gzip
 from os import path
 import xml.etree.ElementTree as ET
 
 import logging
 logger = logging.getLogger(__name__)
 
-from gen_drum_kit.drum_kit.DrumKit         import DrumKit
-from gen_drum_kit.builder.builder_hydrogen import BLD_HG
-from gen_drum_kit.Util                     import decomment, dir_exists
+from gen_drum_kit.builder.builder_hydrogen import Builder_Hydrogen
+from gen_drum_kit.util                     import dir_exists
 
-class HgImporter(Importer):
+class ImporterHydrogen(ImporterBase):
 
   def __init__(self, params):
     super().__init__(params)
     logger.debug("Running in debug mode ...")
-    logger.debug("Importer '%s' created.", __name__)
+    logger.debug("ImporterBase '%s' created.", __name__)
 
-  def load(self):
+  def importData(self):
     self._prepare()
     """ Load drumkit info from XML file and create a drumkit object"""
     logger.info("Loading Hydrogen XML file '%s'...", self._params.HG_xml)
@@ -35,9 +33,9 @@ class HgImporter(Importer):
     self._debug_print() # only in debug mode
     self._read_map_file()
     
-  def createDrumkit(self):  
+  def buildDrumkitDB(self):  
     logger.info("Creating drum kit from Hydrogen data.")    
-    Builder = BLD_HG(params=self._params, xml=self._xml, map=self._channel_map)
+    Builder = Builder_Hydrogen(params=self._params, xml=self._xml, map=self._channel_map)
     drumkit = Builder.buildDrumkit()
 
     return(drumkit)
@@ -55,22 +53,6 @@ class HgImporter(Importer):
 
     self._xml_remove_namespace(tree)
     return(tree)
-  
-  def _read_map_file(self):
-    self._channel_map = []
-    fn                = self._params.map_fn
-    try:
-      logger.info("Reading map file '%s' ...", fn)
-     
-      with open(fn) as csvfile:
-        reader = csv.reader(decomment(csvfile))
-        for row in reader:
-          self._channel_map.append(row)   
-    except:
-      logger.warning("Could not read channel map file '%s'. Using default mapping ...", fn)
-      return()
-
-    logger.debug(self._channel_map)
   
   def _xml_remove_namespace(self, tree):
     root = tree.getroot()

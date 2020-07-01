@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 
 """
- imports and global stuff
+ top level invocation script.
+ 
+ A tool to convert a drum kit data base from one format to another one.
+ 
+ For help run "genDrumkit -h"
+ 
+ More documentation at https://github.com/peter-zenk/genDrumkit/wiki
 """
 
-
-from gen_drum_kit.Main import main
+from gen_drum_kit.main import main
 
 #------------------------------------------------------------------------------
 

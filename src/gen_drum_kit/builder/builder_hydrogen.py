@@ -13,7 +13,7 @@ from gen_drum_kit.drum_kit.Sample      import Sample
 from gen_drum_kit.drum_kit.Audio       import Audio
 from gen_drum_kit.drum_kit.Metadata    import Metadata
 
-from gen_drum_kit.builder.builder_base import BLD_Base
+from gen_drum_kit.builder.builder_base import Builder_Base
 
 
 
@@ -21,7 +21,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class BLD_HG(BLD_Base):
+class Builder_Hydrogen(Builder_Base):
 
   def __init__(self, params, xml, map):
     super().__init__(params)

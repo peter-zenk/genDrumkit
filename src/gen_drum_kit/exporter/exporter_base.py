@@ -8,7 +8,7 @@ import abc
 import logging
 logger = logging.getLogger(__name__)
 
-class Exporter(metaclass=abc.ABCMeta):
+class Exporter_Base(metaclass=abc.ABCMeta):
     '''
     classdocs
     '''
