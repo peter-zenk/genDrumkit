@@ -8,6 +8,6 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Channel(object):
+class Channel():
   name: str = "channel"
 

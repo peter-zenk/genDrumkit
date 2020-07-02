@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class ChannelMap(object):
+class ChannelMap():
   
   inp:     str = "Instr_In"
   out:     str = "Instr_Out"

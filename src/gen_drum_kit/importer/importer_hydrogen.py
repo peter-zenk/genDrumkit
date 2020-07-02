@@ -33,16 +33,14 @@ class ImporterHydrogen(ImporterBase):
     self._debug_print() # only in debug mode
     self._read_map_file()
     
-  def buildDrumkitDB(self):  
-    logger.info("Creating drum kit from Hydrogen data.")    
-    Builder = Builder_Hydrogen(params=self._params, xml=self._xml, map=self._channel_map)
-    drumkit = Builder.buildDrumkit()
-
-    return(drumkit)
-  
-
   """ private functions """
   
+  def _createBuilder(self): 
+    """ create and return the builder """
+    
+    logger.info("Creating drum kit from Hydrogen data.") 
+    return(Builder_Hydrogen(params=self._params, xml=self._xml, mapDB=self._channel_map))    
+
   def _read_xml(self, HG_xml):
     try:
       tree = ET.parse(HG_xml)
@@ -84,8 +82,7 @@ class ImporterHydrogen(ImporterBase):
             logger.debug("\t\t\t\t%s - %s", n4.tag, n4.text)
             for n5 in n4:
               logger.debug("\t\t\t\t\t%s - %s", n5.tag, n5.text)   
-              
-              
+                            
   def _prepare(self):
     if self._params.HG_db:
       self._extract_HG_db()

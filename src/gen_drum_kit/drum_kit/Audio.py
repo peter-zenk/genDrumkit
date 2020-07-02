@@ -8,7 +8,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Audio(object):
+class Audio():
   """ DO NOT CHANGE ORDER """
   channel:     str = "instr_ch"
   file_name:   str = "path/to/kit/sample"

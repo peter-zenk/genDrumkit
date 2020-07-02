@@ -20,21 +20,26 @@ class _ExtEnum(Enum):
   def list(cls):
     return list(map(lambda c: c.value, cls))
 
+
 class ImpType(_ExtEnum):
   DUMMY = "DUMMY"
-  FS    = "FS"
-  HG    = "HG"  # Hydrogen
+  FS = "FS"
+  HG = "HG"  # Hydrogen
+
   
 class ExpType(_ExtEnum):
   DG = "DG"  # DrumGizmo
+
   
 class HgMode(_ExtEnum):
   KIT = "KIT"
   TPL = "TPL"
+
   
 class SampleLevel(_ExtEnum):
   normalized = "normalized"
-  scaled     = "scaled"
+  scaled = "scaled"
+
 
 class SampleSrcPolicy(_ExtEnum):  
   USE = "USE"  #  append to sample_src_dir as it is
@@ -42,7 +47,7 @@ class SampleSrcPolicy(_ExtEnum):
   
 
 @dataclass
-class Parameter(object):
+class Parameter():
     '''
     - Global parameters for import and export
     '''
@@ -96,29 +101,29 @@ class Parameter(object):
                             help="Drum kit name: Default: ''"
                             )
       
-      group_gn.add_argument("--output_dir", "-od", 
+      group_gn.add_argument("--output_dir", "-od",
                             dest="out_dir", type=str, default=".",
                             help="Directory path where output is generated. Default: '.'"
                             )
 
-      group_gn.add_argument("--impFmt", "-imp", 
+      group_gn.add_argument("--impFmt", "-imp",
                             dest="impFmt", choices=ImpType.list(), default="HG",
                             help="Drum kit import format. Default: HG (Hydrogen)"
                             )
       
-      group_gn.add_argument("--expFmt", "-exp", 
+      group_gn.add_argument("--expFmt", "-exp",
                             dest="expFmt", choices=ExpType.list(), default="DG",
                             help="Drum kit export format. Default: DG (DrumGizmo)"
                             )
 
-      group_gn.add_argument("--channel_map", "-cm", 
+      group_gn.add_argument("--channel_map", "-cm",
                             dest="map_fn", type=str, default="map.csv",
                             help="Channel/Instrument map file. Default 'map.csv'"
                             )
       
       group_hg = parser.add_argument_group('Hydrogen', 'Options for Hydrogen importer')
 
-      group_hg.add_argument("--hg_db", "-hgd", 
+      group_hg.add_argument("--hg_db", "-hgd",
                             dest="HG_db", type=str, default="",
                             help="Hydrogen DB file. (*.h2drumkit). Default ''"
                             )
@@ -128,17 +133,17 @@ class Parameter(object):
                             help="Hydrogen XML file. Ignored, if Hydrogen DB is specified. Default ''"
                             )
       
-      group_hg.add_argument("--hg_midi_start", "-hgmi", 
+      group_hg.add_argument("--hg_midi_start", "-hgmi",
                             dest="HG_midi_start", type=int, default=36,
                             help="Hydrogen midi start for default mapping. Default: 36"
                             )
       
-      group_hg.add_argument("--hg_stereo", "-hgs", 
-                            dest="HG_stereo",  action="store_true", default=False,   
+      group_hg.add_argument("--hg_stereo", "-hgs",
+                            dest="HG_stereo", action="store_true", default=False,
                             help="Connect channels and instruemnts via stereo. Default: mono"
                             )
       
-      group_hg.add_argument("--hg_mode", "-hgmo", 
+      group_hg.add_argument("--hg_mode", "-hgmo",
                             dest="HG_mode", choices=HgMode.list(), default="RUN",
                             help="Hydrogen execution mode. KIT: create drumkit, LST: create map list template.\
                             Default 'KIT'"
@@ -146,26 +151,26 @@ class Parameter(object):
 
       group_sm = parser.add_argument_group('Audio samples', 'Options for audio sample handling')
           
-      group_sm.add_argument("--src_dir", "-sd", 
+      group_sm.add_argument("--src_dir", "-sd",
                             dest="src_dir", type=str, default="sample_src_dir",
                             help="Directory path to sample sources (top level). Default: 'sample_src_dir'"
                             )
       
-      group_sm.add_argument("--sample_src_pol", "-ssp", 
+      group_sm.add_argument("--sample_src_pol", "-ssp",
                             dest="samples_src_pol", choices=SampleSrcPolicy.list(), default="USE",
                             help="Policy to build src sample path. TRG: structure like target, \
                             USE: use name as is. Default: 'USE'")
       
-      group_sm.add_argument("--sample_level", "-sl", 
+      group_sm.add_argument("--sample_level", "-sl",
                             dest="samples_level", choices=SampleLevel.list(), default="normalized",
                             help="Samples are scaled or normalized. Default: 'normalized'"
                             )
  
       group_rp = parser.add_argument_group('Report', 'Reporting and debug options')          
 
-      group_rp.add_argument("--log_level", "-ll", 
-                            dest="loglevel", choices=("DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"), 
-                            default=logging.INFO,                      
+      group_rp.add_argument("--log_level", "-ll",
+                            dest="loglevel", choices=("DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"),
+                            default=logging.INFO,
                             help="Set logging level. Default: INFO"
                             )
      
@@ -188,9 +193,11 @@ class Parameter(object):
         setattr(self, arg, getattr(self._opts, arg))
         
     def _run_checks(self):
+      
       if not Path(self.out_dir).is_dir():
         logger.error("Output directory '%s' not found. Aborting ...", self.out_dir)
         exit(1)
+        
       if self.impFmt == "HG" and not self.HG_db and not self.HG_xml:
         logger.error("Neither Hydrogen DB file nor Hydrogen XML file specified. Aborting ...")
         exit(1)

@@ -14,7 +14,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 @dataclass
-class Instrument(object):
+class Instrument():
   name:              str      = "<instr_name>"
   version:           str      = "2.0"
   metadata:          Metadata = Metadata()

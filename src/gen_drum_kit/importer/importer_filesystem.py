@@ -24,14 +24,11 @@ class ImporterFS(ImporterBase):
 
     self._read_map_file()
     
-  def buildDrumkitDB(self):  
-    logger.info("Creating drum kit from file system data.")    
-    Builder = Builder_Filesystem(params=self._params, map=self._channel_map)
-    drumkit = Builder.buildDrumkit()
-
-    return(drumkit)
-  
 
   """ private functions """
   
+  def _createBuilder(self): 
+    """ create and return the builder """ 
+    logger.info("Creating default drum kit from file system data!") 
+    return(Builder_Filesystem(params=self._params, mapDB=self._channel_map))
     

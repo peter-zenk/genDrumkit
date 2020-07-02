@@ -13,7 +13,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 @dataclass
-class Sample(object):
+class Sample():
   #kit_name:    str = "<kit>"
   name:        str = "<instr_sample>"
   normalized:  str = "true"

@@ -21,10 +21,10 @@ class ImporterDummy(ImporterBase):
 
   def importData(self):
     pass
-    
-  def buildDrumkitDB(self):
-    logger.info("Creating default drum kit. No external input loaded!")
+  
+  def _createBuilder(self): 
+    """ create and return the builder """ 
+    logger.info("Creating default drum kit. No external input loaded!") 
+    return(Builder_Dummy(self._params))
+  
 
-    Builder = Builder_Dummy(self._params)
-    drumkit = Builder.buildDrumkit()
-    return(drumkit)

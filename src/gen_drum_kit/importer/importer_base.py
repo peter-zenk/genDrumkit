@@ -12,6 +12,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+
 class ImporterBase(metaclass=abc.ABCMeta):
     '''
     Abstract base class for converter
@@ -24,12 +25,20 @@ class ImporterBase(metaclass=abc.ABCMeta):
     def importData(self): 
       """ """
       pass
-    
-    @abc.abstractmethod     
-    def buildDrumkitDB(self) : 
-      """ create the internal drum kit data base """
-      pass
 
+    def buildDrumkitDB(self):
+      Builder = self._createBuilder()
+      drumkit = Builder.buildDrumkit()
+      return(drumkit)
+
+
+    """ private functions """
+    
+    @abc.abstractmethod
+    def _createBuilder(self): 
+      """ create and return the builder """
+      pass
+         
     def _read_map_file(self):
       self._channel_map = []
       fn                = self._params.map_fn

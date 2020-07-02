@@ -23,9 +23,9 @@ logger = logging.getLogger(__name__)
 
 class Builder_Filesystem(Builder_Base):
 
-  def __init__(self, params, map):
+  def __init__(self, params, mapDB):
     super().__init__(params)
-    self._map = map
+    self._map = mapDB
   
   def buildDrumkit(self):
     logger.info("Building drumkit DB from Hydrogen data ...")

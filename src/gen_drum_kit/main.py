@@ -16,7 +16,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class main(object):
+class Main():
   """ The top level class handling the program flow """
 
   def __init__(self):

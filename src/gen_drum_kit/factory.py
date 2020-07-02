@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 
-class ImporterFactory(object):
+class ImporterFactory():
   """ The importer factory """
   
   def __init__(self):
@@ -35,7 +35,7 @@ class ImporterFactory(object):
       return(ImporterFS(param))
     raise ValueError(name)
   
-class ExporterFactory(object):
+class ExporterFactory():
   """ The exporter factory """
   
   def __init__(self):

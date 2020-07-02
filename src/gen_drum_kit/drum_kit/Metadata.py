@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class Metadata(object):
+class Metadata():
   '''
   classdocs
   '''

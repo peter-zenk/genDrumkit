@@ -10,11 +10,11 @@
  More documentation at https://github.com/peter-zenk/genDrumkit/wiki
 """
 
-from gen_drum_kit.main import main
+from gen_drum_kit.main import Main
 
 #------------------------------------------------------------------------------
 
-program = main()
+program = Main()
 
 program.run() 
 

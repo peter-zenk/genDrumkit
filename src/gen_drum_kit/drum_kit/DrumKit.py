@@ -16,7 +16,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 @dataclass
-class DrumKit(object):
+class DrumKit():
   """
   Central drum kit database
   """
