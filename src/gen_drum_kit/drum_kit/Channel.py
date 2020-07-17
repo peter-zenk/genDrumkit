@@ -9,5 +9,5 @@ from dataclasses import dataclass
 
 @dataclass
 class Channel():
-  name: str = "channel"
-
+    """ info about a audio output channel """
+    name: str = "channel"

@@ -15,20 +15,19 @@ logger = logging.getLogger(__name__)
 
 class ImporterFS(ImporterBase):
 
-  def __init__(self, params):
-    super().__init__(params)
-    logger.debug("Running in debug mode ...")
-    logger.debug("ImporterBase '%s' created.", __name__)
+    def __init__(self, params):
+        super().__init__(params)
+        logger.debug("Running in debug mode ...")
+        logger.debug("ImporterBase '%s' created.", __name__)
 
-  def importData(self):
+    def importData(self):
 
-    self._read_map_file()
-    
+        self._read_map_file()
 
-  """ private functions """
-  
-  def _createBuilder(self): 
-    """ create and return the builder """ 
-    logger.info("Creating default drum kit from file system data!") 
-    return(Builder_Filesystem(params=self._params, mapDB=self._channel_map))
-    
+
+    """ private functions """
+
+    def _createBuilder(self):
+        """ create and return the builder """
+        logger.info("Creating default drum kit from file system data!")
+        return(Builder_Filesystem(params=self._params, mapDB=self._channel_map))

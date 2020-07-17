@@ -16,36 +16,36 @@ logger = logging.getLogger(__name__)
 
 
 class ImporterFactory():
-  """ The importer factory """
+    """ The importer factory """
 
-  def __init__(self):
-    logger.debug("Running in debug mode") 
-      
-  @staticmethod   
-  def create(param):
-    """ create the importer object based on the value of 'param' """
-    name = param.impFmt
-    logger.debug("Creating importer '%s'", name)
-    if (name == "DUMMY"):
-      return(ImporterDummy(param))
-    if (name == "HG"):
-      return(ImporterHydrogen(param))
-    if (name == "FS"):
-      return(ImporterFS(param))
-    raise ValueError(name)
+    def __init__(self):
+        logger.debug("Running in debug mode")
 
-  
+    @staticmethod
+    def create(param):
+        """ create the importer object based on the value of 'param' """
+        name = param.impFmt
+        logger.debug("Creating importer '%s'", name)
+        if (name == "DUMMY"):
+            return(ImporterDummy(param))
+        if (name == "HG"):
+            return(ImporterHydrogen(param))
+        if (name == "FS"):
+            return(ImporterFS(param))
+        raise ValueError(name)
+
+
 class ExporterFactory():
-  """ The exporter factory """
-  
-  def __init__(self):
-    logger.debug("Running in debug mode")   
-  
-  @staticmethod 
-  def create(drumkit, param):
-    """ create the exporter object based on the value of 'param' """
-    name = param.expFmt
-    logger.debug("Creating exporter '%s'", name)
-    if (name == "DG"):
-      return(Exporter_Drumgizmo(drumkit, param))
-    raise ValueError(name)
+    """ The exporter factory """
+
+    def __init__(self):
+        logger.debug("Running in debug mode")
+
+    @staticmethod
+    def create(drumkit, param):
+        """ create the exporter object based on the value of 'param' """
+        name = param.expFmt
+        logger.debug("Creating exporter '%s'", name)
+        if (name == "DG"):
+            return(Exporter_Drumgizmo(drumkit, param))
+        raise ValueError(name)

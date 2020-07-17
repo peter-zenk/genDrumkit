@@ -8,9 +8,11 @@ from dataclasses import dataclass
 
 @dataclass
 class ChannelMap():
-  
-  inp:     str = "Instr_In"
-  out:     str = "Instr_Out"
-  main:    str = "true"
-  
-  def __post_init__(self): pass
+    """ info for a channel map (map instrument to channel) """
+
+    inp:     str = "Instr_In"
+    out:     str = "Instr_Out"
+    main:    str = "true"
+
+    def __post_init__(self): 
+        pass
