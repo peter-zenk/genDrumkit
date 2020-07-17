@@ -10,16 +10,23 @@ from pathlib import Path
 
 
 def decomment(csvfile):
+  """ remove comments from CSV file """
   for row in csvfile:
     raw = row.split('#')[0].strip()
-    if raw: yield row
+    if raw: 
+      yield row
+
     
 def mkdir(path):
-    Path(path).mkdir(parents=True, exist_ok=True)
+  """ short cut """
+  Path(path).mkdir(parents=True, exist_ok=True)
+
     
 def dir_exists(path):
-  return( Path(path).is_dir())
+  """ short cut """
+  return(Path(path).is_dir())
+
 
 def file_exists(path):
-  return( Path(path).is_file())
-
+  """ short cut """
+  return(Path(path).is_file())

@@ -4,6 +4,7 @@ Created on Jun 14, 2020
 @author: peter
 '''
 
+from sys import exit
 from dataclasses import dataclass, field
 from pathlib import Path
 from enum import Enum
@@ -11,6 +12,7 @@ from typing import List
 from argparse import ArgumentParser
 
 import logging
+from builtins import staticmethod
 logger = logging.getLogger(__name__)
 
 
@@ -18,30 +20,36 @@ class _ExtEnum(Enum):
 
   @classmethod
   def list(cls):
+    """ helper function """
     return list(map(lambda c: c.value, cls))
 
 
 class ImpType(_ExtEnum):
+  """ helper class """
   DUMMY = "DUMMY"
   FS = "FS"
   HG = "HG"  # Hydrogen
 
   
 class ExpType(_ExtEnum):
+  """ helper class """
   DG = "DG"  # DrumGizmo
 
   
 class HgMode(_ExtEnum):
+  """ helper class """  
   KIT = "KIT"
   TPL = "TPL"
 
   
 class SampleLevel(_ExtEnum):
+  """ helper class """
   normalized = "normalized"
   scaled = "scaled"
 
 
-class SampleSrcPolicy(_ExtEnum):  
+class SampleSrcPolicy(_ExtEnum): 
+  """ helper class """     
   USE = "USE"  #  append to sample_src_dir as it is
   TRG = "TRG"  # same structure as exporter uses for target
   
@@ -85,8 +93,9 @@ class Parameter():
       self._set_params()
       self._run_checks()
       logger.debug(self)
-      
-    def _process_cmd_line(self):
+    
+    @staticmethod
+    def _process_cmd_line():
       
       parser = ArgumentParser(
         description="Convert a drum kitfrom one format into another one. \
@@ -175,8 +184,9 @@ class Parameter():
                             )
      
       return(parser.parse_args())
-      
-    def _config_logging(self, loglevel="INFO"):
+
+    @staticmethod      
+    def _config_logging(loglevel="INFO"):
       logging.basicConfig(
       # format="%(asctime)s [%(levelname)s] %(message)s",
         format="genKit (%(filename)s) - [%(levelname)s]:   %(message)s",
