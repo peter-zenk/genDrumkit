@@ -73,19 +73,21 @@ class Builder_Hydrogen(Builder_Base):
 
     def _add_instruments(self):
         for xml_instr in self._root.find('instrumentList'):
-            ii   = self._xml_extract_instr_info(xml_instr)
+            ii   = self._xml_extract_instr_info(xml_instr) # Instrument Info
             name = ii['name']
 
             # overwrite group info if exists (from map file)
             if name in self._groups.keys()  and self._groups[name]:
                 ii["group"] = self._groups[name]
 
-            if self._midi[name]:
+            try:
               ii['midi_note'] = self._midi[name]
+            except:
+              pass
               
             # construct midi from id if it does not exist
             if not ii['midi_note']:
-                ii['midi_note'] = str( int(ii['id']) + self._params.HG_midi_start)
+                ii['midi_note'] = str( int(ii['id']) + self._params.midi_start)
 
             logger.debug(ii)
 

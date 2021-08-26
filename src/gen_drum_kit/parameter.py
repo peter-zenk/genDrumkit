@@ -67,13 +67,13 @@ class Parameter():
     samples_src_pol:    open = "USE"  # policy for input sample file name
 
     map_fn:             str = ""  # CSV file with mapping from instrument to channel
+    midi_start:         str = 36  # midi start for default mapping
 
     """ Importers """
     impFmt:             open = None  # Type of importer
 
     HG_xml:             str = "drumkit.xml"  # Hydrogen drumkit XML file
     HG_db:              str = "drumkit.h2drumkit"  # Hydrogen data base file
-    HG_midi_start:      str = 36  # Hydrogen midi start for default mapping
     HG_mode:            str = "KIT"  # run mode for Hydrogen processing
     HG_stereo:          int = False
 
@@ -129,6 +129,11 @@ class Parameter():
                               dest="map_fn", type=str, default="map.csv",
                               help="Channel/Instrument map file. Default 'map.csv'"
                               )
+        group_gn.add_argument("--midi_start", "-ms",
+                              dest="midi_start", type=int, default=36,
+                              help="midi start value for default mapping. Default: 36"
+                              )
+
 
         group_hg = parser.add_argument_group('Hydrogen', 'Options for Hydrogen importer')
 
@@ -142,14 +147,9 @@ class Parameter():
                               help="Hydrogen XML file. Ignored, if Hydrogen DB is specified. Default ''"
                               )
 
-        group_hg.add_argument("--hg_midi_start", "-hgmi",
-                              dest="HG_midi_start", type=int, default=36,
-                              help="Hydrogen midi start for default mapping. Default: 36"
-                              )
-
         group_hg.add_argument("--hg_stereo", "-hgs",
                               dest="HG_stereo", action="store_true", default=False,
-                              help="Connect channels and instruemnts via stereo. Default: mono"
+                              help="Connect channels and instruments via stereo. Default: mono"
                               )
 
         group_hg.add_argument("--hg_mode", "-hgmo",
