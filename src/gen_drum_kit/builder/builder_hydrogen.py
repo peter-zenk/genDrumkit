@@ -80,6 +80,9 @@ class Builder_Hydrogen(Builder_Base):
             if name in self._groups.keys()  and self._groups[name]:
                 ii["group"] = self._groups[name]
 
+            if self._midi[name]:
+              ii['midi_note'] = self._midi[name]
+              
             # construct midi from id if it does not exist
             if not ii['midi_note']:
                 ii['midi_note'] = str( int(ii['id']) + self._params.HG_midi_start)
@@ -169,42 +172,7 @@ class Builder_Hydrogen(Builder_Base):
         else:  # 1 channel per instrument - mono
             sample.audios.append(Audio(channel=(name), src_fn=fn,
                                        file_name="samples/" + fn, filechannel=1))
-    def _extract_map_info(self):
-        self._channel_map  = {}
-        self._channel_list = []
-        self._groups       = {}
-
-        logger.warning("midi info from map file not used yet")
-
-        if len(self._map) != 0: # map exists
-            for item in self._map:
-                # <instr>, <channel>, <midi>, <group>
-                instr    = item.pop(0).strip()
-                channel = item.pop(0).strip()
-                midi    = item.pop(0).strip() # not used yet
-                # TODO: implement midi mapping
-
-                group   = item.pop(0).strip()
-
-                self._channel_map[instr] = channel  # instr - channel
-                self._groups[instr]      = group    # instr - groups
-                self._channel_list.append(channel)
-        else:  # defaults
-            for xml_instr in self._root.find('instrumentList'):
-                name = xml_instr.findtext('name').strip()
-                self._channel_list.append(name)
-                self._channel_map[name] = name   # instr - channel
-
-        self._channel_list = list(dict.fromkeys(self._channel_list)) # remove duplicates
-
-        no_of_ch =   len(self._channel_list) * 2  if self._params.HG_stereo else len(self._channel_list)
-        if (no_of_ch > self._params.channel_limit):
-            logger.warning("Number of total channels (%s) is greater than limit! DrumGizmo might only support %s channels",
-                         no_of_ch, self._params.channel_limit)
-
-        logger.debug(self._channel_list)
-        logger.debug(self._channel_map)
-        logger.debug(self._groups)
+  
 
     @staticmethod
     def _xml_extract_instr_info(xml_instr):
@@ -230,7 +198,7 @@ class Builder_Hydrogen(Builder_Base):
         # FIXME: iterate directly over dictionary instead of keys
             if type(info[k]) == str:
                 info[k] = info[k].strip()
-
+ 
         # handle group
         if   info['muteGroup'] and (info['muteGroup'] != '-1' ):
             info['group'] = "group_" + info['muteGroup']

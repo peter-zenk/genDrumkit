@@ -23,6 +23,45 @@ class Builder_Base(metaclass=abc.ABCMeta):
         """ 
         abstract method that must return a drumkit object 
         """
+        
+    def _extract_map_info(self):
+        self._channel_map  = {}
+        self._channel_list = []
+        self._groups       = {}
+        self._midi         = {}
+
+
+        if len(self._map) != 0: # map exists
+            for item in self._map:
+                # <instr>, <channel>, <midi>, <group>
+                instr   = item.pop(0).strip()
+                channel = item.pop(0).strip()
+                midi    = item.pop(0).strip() 
+
+                group   = item.pop(0).strip()
+
+                self._channel_map[instr] = channel  # instr - channel
+                self._groups[instr]      = group    # instr - groups 
+                self._channel_list.append(channel)
+                self._midi[instr]        = midi
+        else:  # defaults
+            for xml_instr in self._root.find('instrumentList'):
+                name = xml_instr.findtext('name').strip()
+                self._channel_list.append(name)
+                self._channel_map[name] = name   # instr - channel
+
+        self._channel_list = list(dict.fromkeys(self._channel_list)) # remove duplicates
+
+        no_of_ch =   len(self._channel_list) * 2  if self._params.HG_stereo else len(self._channel_list)
+        if (no_of_ch > self._params.channel_limit):
+            logger.warning("Number of total channels (%s) is greater than limit! Target format might only support %s channels",
+                         no_of_ch, self._params.channel_limit)
+
+        logger.debug(self._channel_list)
+        logger.debug(self._channel_map)
+        logger.debug(self._midi)  
+        logger.debug(self._groups)
+      
     
    
     def _create_map_template(self, instr_list):
