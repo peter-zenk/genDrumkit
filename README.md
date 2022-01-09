@@ -64,3 +64,6 @@ Report:
                         Set logging level. Default: INFO
 
 ```
+
+## Known Issues, Missing Features
+https://github.com/peter-zenk/genDrumkit/wiki/Bugs,-Issues,-Features
