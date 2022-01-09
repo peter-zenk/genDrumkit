@@ -1,4 +1,8 @@
-ERROR SETUP DOES NOT WORK
+import sys
+sys.exit(""ERROR - SETUP DOES NOT WORK")
+
+# script is broken and needs to fixed
+
 import setuptools
 import os
 
