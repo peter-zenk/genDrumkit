@@ -1,3 +1,4 @@
+ERROR SETUP DOES NOT WORK
 import setuptools
 import os
 
